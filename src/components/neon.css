@@ -1,0 +1,297 @@
+/* Cyberpunk Green Matrix-inspired Background */
+body {
+    /* margin: 0; */
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at center, #0a1f1b, #0d2c26, #1a3a30);
+    font-family: 'Courier New', monospace;
+    overflow: hidden;
+}
+::selection{
+    background: #2afc98;
+    color: #0b0b0b;
+}
+/* Cyber Container with circuit board effect */
+.cyber-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 100px 150px;
+    background: rgba(13, 14, 14, 0.9);
+    border-radius: 40px;
+    text-align: center;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(42, 252, 152, 0.3);
+}
+
+/* Animated grid overlay effect */
+.cyber-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background: 
+        linear-gradient(90deg, 
+            rgba(42, 252, 152, 0.1) 1px, 
+            transparent 1px),
+        linear-gradient(180deg, 
+            rgba(42, 252, 152, 0.1) 1px, 
+            transparent 1px);
+    background-size: 20px 20px;
+    animation: gridScroll 20s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes gridScroll {
+    from { transform: translate(-50%, -50%); }
+    to { transform: translate(0, 0); }
+}
+
+/* Glowing border animation */
+.cyber-container::after {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, 
+        #2afc98, 
+        #0fff9d, 
+        #1ed96e, 
+        #2afc98);
+    z-index: -1;
+    animation: borderGlow 3s linear infinite;
+    filter: blur(10px);
+}
+
+@keyframes borderGlow {
+    0% { opacity: 0.8; }
+    50% { opacity: 1; }
+    100% { opacity: 0.8; }
+}
+
+/* Matrix-style text */
+.cyber-text {
+    font-size: 2.8rem;
+    color: hsla(151, 96%, 51%, 0.704);
+    text-align: center;
+    text-decoration: underline;
+    text-shadow: 1px 1px 39px #2afc98;
+    margin-bottom: 30px;
+    letter-spacing: 4px;
+    position: relative;
+}
+
+/* Label styling */
+.cyber-label {
+    font-size: 1.5rem;
+    color: #0fff9d;
+    text-shadow: 1px 1px 39px #2afc98;
+}
+
+/* Input field styling */
+.cyber-input {
+    width: 100%;
+    padding: 12px 2px;
+    margin: 15px 0;
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid #2afc98;
+    border-radius: 2px;
+    color: #2afc98;
+    box-shadow: 0 0 20px rgba(42, 252, 152, 0.5);
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.cyber-input:focus {
+    outline: none;
+    box-shadow: 0 0 20px #2afc98;
+    background: rgba(42, 252, 152, 0.1);
+}
+
+/* Holographic button style */
+.cyber-button {
+    padding: 15px 40px;
+    margin-top: 25px;
+    background: linear-gradient(45deg, #315443, #1ed96e);
+    border: none;
+    border-radius: 20px;
+    color: #0b0b0b;
+    font-weight: bold;
+    font-size: 2rem;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+    box-shadow: 0 0 25px rgba(42, 252, 152, 0.5);
+}
+
+.cyber-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 35px #2afc98;
+    border-radius: 3px;
+}
+
+.cyber-button::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, 
+        transparent 30%, 
+        rgba(255,255,255,0.3) 50%, 
+        transparent 70%);
+    animation: buttonGlow 3s infinite linear;
+}
+
+@keyframes buttonGlow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Alert/status message styling */
+.cyber-alert {
+    margin-top: 25px;
+    padding: 15px;
+    font-size: 25px;
+    box-shadow: 1px 1px 20px rgba(42, 252, 152, 0.5);
+    border-radius: 20px;
+    background: rgba(4, 24, 20, 0.9);
+    border: 1px solid #2afc98;
+    color: #2afc98;
+    text-shadow: 0 0 10px #2afc98;
+    position: relative;
+}
+
+/* Scanning line animation */
+.scan-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, transparent 0%, #2afc98 50%, transparent 100%);
+    animation: scan 3s linear infinite;
+}
+
+@keyframes scan {
+    0% { top: 0; }
+    100% { top: 100%; }
+}
+
+/* Responsive Adjustments */
+
+/* Tablets and Small Laptops (max-width: 768px) */
+@media (max-width: 768px) {
+    .cyber-container {
+        padding: 50px 20px;
+        border-radius: 20px;
+    }
+    
+    .cyber-text {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        letter-spacing: 2px;
+    }
+    
+    .cyber-label {
+        font-size: 1.2rem;
+    }
+    
+    .cyber-input {
+        font-size: 1rem;
+    }
+    
+    .cyber-button {
+        padding: 12px 30px;
+        font-size: 1rem;
+    }
+    
+    .cyber-alert {
+        font-size: 20px;
+        padding: 10px;
+    }
+}
+
+/* Mobile Devices (max-width: 480px) */
+@media (max-width: 480px) {
+    .cyber-container {
+        padding: 50px 10px;
+        width: 90%;
+        /* margin:auto; */
+        height: 100%; /* Adjust height to auto for better flow */
+        border-radius: 10px;
+    }
+    
+    .cyber-text {
+        font-size: 1.5rem;
+    }
+    
+    .cyber-label {
+        font-size: 1rem;
+    }
+    
+    .cyber-input {
+        font-size: 0.9rem;
+        padding: 8px 0;
+        text-align: center;
+    }
+    
+    .input-margin {
+        margin: 1px;
+        width: 230px;
+        margin-top: 10px;
+    }
+    
+    .input-margin::placeholder {
+        text-align: center;
+        font-weight: bold;
+        color: aliceblue;
+    }
+    
+    .cyber-button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    
+    .cyber-alert {
+        font-size: 15px;
+    }
+}
+/* Footer Styling */
+.cyber-footer {
+    /* width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 20px;
+    color: #0fff9d;
+    font-size: 1rem;
+    padding: 10px 0; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:#0fff9d;
+    top:30px;
+    font-size: 1rem;
+}
+
+/* Adjust Footer on Mobile Devices */
+@media (max-width: 480px) {
+    .cyber-footer {
+        font-size: 0.9rem;
+        bottom: 10px;
+        top:30px;
+    }
+}
